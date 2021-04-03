@@ -402,7 +402,7 @@ static void show_tile(WLWindow* window, uint64_t surface_id, int x, int y) {
     Tile* other_tile = &tile_it->second;
 
     if (other_tile->is_visible) {
-      wl_subsurface_place_above(tile->subsurface, other_tile->surface);
+      //wl_subsurface_place_above(tile->subsurface, other_tile->surface);
     }
   }
 
@@ -428,7 +428,7 @@ static void hide_tile(WLWindow* window, uint64_t surface_id, int x, int y) {
   wp_viewport_set_source(tile->viewport, wl_fixed_from_int(0),
                          wl_fixed_from_int(0), wl_fixed_from_int(1),
                          wl_fixed_from_int(1));
-  wl_subsurface_place_below(tile->subsurface, window->surface);
+  //wl_subsurface_place_below(tile->subsurface, window->surface);
   tile->is_visible = false;
 }
 
@@ -567,7 +567,7 @@ void com_wl_end_transaction(WLWindow* window) {
         Tile* tile = &tile_it->second;
 
         if (tile->is_visible) {
-          wl_subsurface_place_above(tile->subsurface, prev_surface);
+          //wl_subsurface_place_above(tile->subsurface, prev_surface);
 
           if (!next_surface) {
             next_surface = tile->surface;
